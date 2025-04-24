@@ -101,7 +101,7 @@ public class ContactsTest extends BaseClass
 	@When("upload a csv file into fileupload field")
 	public void upload_a_csv_file_into_fileupload_field() throws AWTException 
 	{
-	    contactPage.setFileUpload("/home/rokkun09/Downloads/CTest01_B2C_10.csv");
+	    contactPage.setFileUpload("C:\\Users\\LENOVO\\Downloads\\CTest-B2C-(10).csv");
 	}
 
 	@When("Enters a default from name")

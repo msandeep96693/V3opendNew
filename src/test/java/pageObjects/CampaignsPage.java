@@ -1113,7 +1113,7 @@ public class CampaignsPage extends BasePage
 
 	//nagaraj code
 	@FindBy(xpath="//input[@placeholder='Select Campaign Sector']") WebElement campaignSector;
-    @FindBy(xpath="//span[text()='Financial']") WebElement option;
+    @FindBy(xpath="//span[text()='Automotive']") WebElement option;
     @FindBy(xpath="//button[text()='Select']") WebElement selectBtn;
     public void clickonCampagnSector() 
     {

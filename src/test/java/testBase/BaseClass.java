@@ -35,11 +35,12 @@ public class BaseClass
 	
 	
    @Before
-   public void browserSetup(String browser)
+   public void browserSetup(String browser) throws AWTException
    {
 	   if(browser.equals("chrome"))
 	   {
 		   driver=new ChromeDriver();
+		   Robot rt = new Robot();
 	   }
 	   else if(browser.equals("firefox"))
 	   {

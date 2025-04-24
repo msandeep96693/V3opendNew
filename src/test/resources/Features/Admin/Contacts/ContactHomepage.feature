@@ -30,8 +30,8 @@ Feature: Contacts Home Page
     
    @Sanity
    Scenario: The admin filters the contacts by Advertiser and verifies the results in the table
-    When The admin selects "DigiKnw Ltd (sunny@digiknw.com)" from the "Select Publisher" filter dropdown
-    Then Verify the table should display only contacts with the type "DigiKnw Ltd" from "Publisher" column
+    When The admin selects "Tech  (varun@active.agency)" from the "Select Publisher" filter dropdown
+    Then Verify the table should display only contacts with the type "Tech" from "Publisher" column
     When Clicks on the profile icon
     And Clicks on logout button
     Then Ensure that the admin successfully logout from admin portal with the confirmation message

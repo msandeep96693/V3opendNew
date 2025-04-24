@@ -6,8 +6,8 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = {
-//				"src/test/resources/Features/Admin/Advertisers/AddAdvertiser.feature",
-		         "src/test/resources/Features/Admin/Advertisers/AdvertiserHomePage.feature"
+				"src/test/resources/Features/Admin/Advertisers/AddAdvertiser.feature",
+//		         "src/test/resources/Features/Admin/Advertisers/AdvertiserHomePage.feature"
 				},
                  glue = "stepDefinitions",
                  monochrome = true,

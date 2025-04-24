@@ -170,7 +170,7 @@ public class ContactsPage extends BasePage
 	public void setMappingDropdowns5()
 	{
 		Select sel1=new Select(emailmapp);
-		sel1.selectByVisibleText("email ");
+		sel1.selectByVisibleText("Email ");
 	}
 
 	

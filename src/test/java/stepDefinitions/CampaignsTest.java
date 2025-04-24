@@ -1,6 +1,8 @@
 package stepDefinitions;
 
 import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +17,8 @@ import testBase.BaseClass;
 
 public class CampaignsTest extends BaseClass
 {
+	
+	public Robot rt;
 
 	/*----------------------------------------------Add Camapigns---------------------------------------------*/ 
 	
@@ -54,8 +58,20 @@ public class CampaignsTest extends BaseClass
 	}
 
 	@When("Select an advertiser from advertiser dropdown")
-	public void select_an_advertiser_from_advertiser_dropdown() 
+	public void select_an_advertiser_from_advertiser_dropdown() throws AWTException 
 	{
+		rt = new Robot();
+ 	    rt.keyPress(KeyEvent.VK_CONTROL);
+	    
+	    for(int i =0; i<=3; i++)
+	    {
+	    	rt.keyPress(KeyEvent.VK_MINUS);
+	    	rt.keyRelease(KeyEvent.VK_MINUS);
+	    } 
+	    
+	    rt.keyRelease(KeyEvent.VK_CONTROL);
+		
+		
 	    campaignsPage.selectOptionInDropdown("Please Select Advertiser", "Tech Active (sudeep@active.agency)");
 	}
 
@@ -92,13 +108,13 @@ public class CampaignsTest extends BaseClass
 	@When("Select a audience type from audience type dropdown")
 	public void select_a_audience_type_from_audience_type_dropdown() 
 	{
-		campaignsPage.selectOptionInDropdown("Select Audience Type","UK Gambling Data ");
+		campaignsPage.selectOptionInDropdown("Select Audience Type","UK Investor Data ");
 	}
 
 	@When("Select a capaign sector from campaign sector popup dropdown")
 	public void select_a_capaign_sector_from_campaign_sector_popup_dropdown() 
 	{
-		options=Arrays.asList("Car Insurance");
+		options=Arrays.asList("Automotive");
 	    campaignsPage.clickonCampagnSector();//SelectOptionInPopupDropdown("Select Campaign Sector", options, "test");
 	}
 

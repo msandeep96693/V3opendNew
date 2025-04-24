@@ -1,5 +1,10 @@
 package stepDefinitions;
 
+import java.awt.AWTException;
+import java.awt.Event;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
 import org.testng.Assert;
 
 import io.cucumber.java.en.*;
@@ -8,10 +13,12 @@ import testBase.BaseClass;
 
 public class SigninTest extends BaseClass 
 {
+	
 
 	@Given("The admin launches the browser")
-	public void the_admin_launches_the_browser() 
+	public void the_admin_launches_the_browser() throws AWTException 
 	{
+		
 	    browserSetup("chrome");
 	    signin=new SignInPage(driver);
 	}

@@ -71,7 +71,7 @@ public class SuppressionTest extends BaseClass
 	public void upload_a_suppression_file() throws AWTException 
 	{
 	   contactPage=new ContactsPage(driver);
-	   contactPage.setFileUpload("/home/rokkun09/Documents/suppression csv.csv");
+	   contactPage.setFileUpload("C:\\Users\\LENOVO\\Downloads\\sup05 - 5 valid.csv");
 	}
 
 	@When("select a upload type")

@@ -5,9 +5,11 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = {"src/test/resources/Features/Admin/Campaigns/AddCampaigns.feature"},
+@CucumberOptions(features = {
+							"src/test/resources/Features/Admin/Campaigns/AddCampaigns.feature",
 //		                     "src/test/resources/Features/Admin/Campaigns/CampaignHomepage.feature",
-//		                     "src/test/resources/Features/Admin/Campaigns/UpdateCampaigns.feature"},
+//		                     "src/test/resources/Features/Admin/Campaigns/UpdateCampaigns.feature"
+		                     },
                  glue = "stepDefinitions",
                  monochrome = true,
 //                 tags = "@Sanity or @Regression",

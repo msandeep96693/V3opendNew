@@ -110,7 +110,7 @@ public class CampaignsTest extends BaseClass
 	}
 
 	@When("Clicks on proceed button in first step")
-	public void clicks_on_proceed_button()
+	public void clicks_on_proceed_button() throws AWTException
 	{
 	    campaignsPage.clickOnProceedButtonOnFirststep();
 	}
@@ -215,7 +215,7 @@ public class CampaignsTest extends BaseClass
 	}
 
 	@When("Select a email scheduling")
-	public void select_a_email_scheduling() throws InterruptedException
+	public void select_a_email_scheduling() throws InterruptedException, AWTException
 	{
 	   List<String> days=Arrays.asList("Tue");
 		
@@ -226,7 +226,11 @@ public class CampaignsTest extends BaseClass
 //	   campaignsPage.selectSpecificScheduleDays(days);
 //	   campaignsPage.setStartDateAsCurrentDateAutomaticaly();
 	   campaignsPage.setEndDateAsGraterthenStartDateAutomaticaly(3);
+	   
+	   
 	   campaignsPage.selectAllScheduleDays();
+	   
+	   campaignsPage.settime();
 	   
 	   
 	}
@@ -327,7 +331,7 @@ public class CampaignsTest extends BaseClass
 	}
 
 	@When("Clicks on proceed button on second step")
-	public void clicks_on_proceed_button_on_second_step() 
+	public void clicks_on_proceed_button_on_second_step() throws AWTException 
 	{
 	   campaignsPage.clickOnProceedButtonOnFirststep();
 	}

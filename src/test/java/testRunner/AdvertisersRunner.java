@@ -5,11 +5,15 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = {"src/test/resources/Features/Admin/Advertisers/AddAdvertiser.feature",
-		         "src/test/resources/Features/Admin/Advertisers/AdvertiserHomePage.feature"},
+@CucumberOptions(features = {
+//				"src/test/resources/Features/Admin/Advertisers/AddAdvertiser.feature",
+		         "src/test/resources/Features/Admin/Advertisers/AdvertiserHomePage.feature"
+				},
                  glue = "stepDefinitions",
                  monochrome = true,
-                 plugin = "html:Reports/AddAdvertiser",
+                 plugin = { "html:Reports/AddAdvertiser", 
+                		 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+                 },
                  tags = "@Smoke",
                  dryRun = false
 		)

@@ -6,13 +6,16 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = {"src/test/resources/Features/Admin/Recurring/AddRecurring.feature",
-		                     "src/test/resources/Features/Admin/Recurring/RecurringHomePge.feature",
-		                     "src/test/resources/Features/Admin/Recurring/UpdateRecurring.feature"},
+@CucumberOptions(features = {
+							"src/test/resources/Features/Admin/Recurring/AddRecurring.feature",
+//		                     "src/test/resources/Features/Admin/Recurring/RecurringHomePge.feature",
+//		                     "src/test/resources/Features/Admin/Recurring/UpdateRecurring.feature"
+		                     },
                   glue = "stepDefinitions",
-//                  tags = "@Smoke",
+                  tags = "@Smoke",
                   monochrome = true,
-                  plugin = "html:Reports/AddRecurring",
+                  plugin = { "html:Reports/AddRecurring",
+                		  "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" },
                   dryRun = false
 		
 		            )

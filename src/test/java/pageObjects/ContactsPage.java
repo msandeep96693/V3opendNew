@@ -144,6 +144,8 @@ public class ContactsPage extends BasePage
 	@FindBy(xpath = "(//select[@formcontrolname='DropdownControl'])[8]") WebElement optInDate;
 	@FindBy(xpath = "(//select[@formcontrolname='DropdownControl'])[9]") WebElement email;
 	@FindBy(xpath = "(//select[@formcontrolname='DropdownControl'])[12]") WebElement optInTime;
+	@FindBy(xpath = "//select[@formcontrolname='DropdownControl']") WebElement emailmapp;
+	
 	public void setMappingDropdowns1()
 	{
 		Select sel1=new Select(optInSource);
@@ -163,6 +165,12 @@ public class ContactsPage extends BasePage
 	{
 		Select sel4=new Select(optInTime);
 		sel4.selectByVisibleText("optintime ");
+	}
+	
+	public void setMappingDropdowns5()
+	{
+		Select sel1=new Select(emailmapp);
+		sel1.selectByVisibleText("email ");
 	}
 
 	

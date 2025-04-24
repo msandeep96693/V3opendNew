@@ -1,5 +1,7 @@
 package stepDefinitions;
 
+import java.awt.AWTException;
+
 import org.testng.Assert;
 
 import io.cucumber.java.en.*;
@@ -52,7 +54,7 @@ public class RecurringAdsTest extends BaseClass
 	}
 
 	@When("Enters a email body one and email body two")
-	public void enters_a_email_body_one_and_email_body_two() 
+	public void enters_a_email_body_one_and_email_body_two() throws AWTException 
 	{
 	    recurringAds.clickCreativesButtonOne();
 	    campaignsPage.clickOnselectButtonOnCreativePopup();

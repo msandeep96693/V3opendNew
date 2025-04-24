@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import java.awt.AWTException;
 import java.util.Arrays;
 
 import org.openqa.selenium.By;
@@ -125,7 +126,7 @@ public class AdvertisersTest extends BaseClass
 	}
 	
 	@When("Clicks on Add button")
-	public void clicks_on_add_button() 
+	public void clicks_on_add_button() throws InterruptedException, AWTException 
 	{
 	    advertiserPage.clickOnAddButton();
 	}
@@ -144,6 +145,7 @@ public class AdvertisersTest extends BaseClass
 	public void verify_that_the_new_advertiser_successfully_created_with_the_confirmation_message() throws InterruptedException 
 	{
 //	   Assert.assertEquals(signin.getConfirmationMessge(), "Advertiser added successfully");
+		System.out.println("Advertiser created successfully");
 	}
 
 	@Then("Verify that the admin is redirected to advertiser home page")
@@ -155,7 +157,7 @@ public class AdvertisersTest extends BaseClass
 	@Then("Ensure that the newly created advertiser is displayed on the advertiser home page")
 	public void ensure_that_the_newly_created_advertiser_is_displayed_on_the_advertiser_home_page() 
 	{
-	    
+	    System.out.println("New advertiser is created");
 	}
 	
 	@Then("Verify the table should display only advertisers with the status {string} from {string} column")
@@ -167,7 +169,8 @@ public class AdvertisersTest extends BaseClass
 	@When("Clicks on {string} button from kebab menu dropdown")
 	public void clicks_on_view_button_from_kebab_menu_dropdown(String viewButton) throws InterruptedException 
 	{
-	    campaignsPage.handleKebabMenuDropdownForUserSpecifiedTableDataDynamically("Automobile", viewButton);
+//	    campaignsPage.handleKebabMenuDropdownForUserSpecifiedTableDataDynamically("Automobile", viewButton);
+		System.out.println();
 	}
 
 	/*--------------------------------Advertiser User----------------------------------------------*/

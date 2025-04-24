@@ -8,10 +8,12 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/Features/Admin/Publishers/AddPublishers.feature",
                  glue = "stepDefinitions",
-                 plugin = "html:Reports/AddPublishers",
+                 plugin = { "html:Reports/AddPublishers", 
+                		 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+                 },
                  tags = "@Smoke",
                  monochrome = true,
-                 dryRun = true
+                 dryRun = false
 		        )
 
 public class PublishersRunner {

@@ -79,6 +79,9 @@ public class CampaignsPage extends BasePage
 	private @FindBy(xpath = "//label[.='Select All']")
 	WebElement selectall_onpopupdropdown;
 	
+	private @FindBy(xpath = "//input[@placeholder='Select Campaign Sector']")
+	WebElement campaignsector_dropdown;
+	
 	private @FindBy(xpath = "//button[@class='std-button-blue']")
 	WebElement form_buttons;
 	
@@ -329,6 +332,23 @@ public class CampaignsPage extends BasePage
 				}
 	}
 	
+	public void campaignsectordropdown(String optionname)
+	{
+		campaignsector_dropdown.click();
+		
+		for( WebElement getoptionlist:popupdropdown_options)
+		{
+			String optionlist = getoptionlist.getText();
+			if(optionlist.equalsIgnoreCase(optionname))
+			{
+				getoptionlist.click();
+				break;
+			}
+		}
+		
+		driver.findElement(By.xpath("//button[.='Select']")).click();
+	}
+	
 	// all radio button in single method
 	public void setRadioButtons(String radiobuttonName)  
 	{
@@ -371,6 +391,8 @@ public class CampaignsPage extends BasePage
 				for(WebElement dropdownOption:popupdropdown_options)
 				{
 					String getoptionText = dropdownOption.getText();
+					System.out.println("Get option text :-"+getoptionText);
+					System.out.println("Get place holder name ;-"+ getPlaceholder);
 					if (getPlaceholder.equalsIgnoreCase(placeholderForSelectAll))
 					{
 						if(!selectall_checkbox.isSelected()) {
@@ -383,7 +405,7 @@ public class CampaignsPage extends BasePage
 					{
 					  for(String optionName:optionNames)
 					  {
-						if (getoptionText.equalsIgnoreCase(optionName)) 
+						if (getoptionText.equalsIgnoreCase(optionName))
 						{
 							waitElementHelper(dropdownOption);
 							dropdownOption.click();
@@ -425,14 +447,25 @@ public class CampaignsPage extends BasePage
 	}
 
 
-	public void clickOnProceedButtonOnFirststep()
+	public void clickOnProceedButtonOnFirststep() throws AWTException
 	{
 		waitElementHelper(proceedButton_onfirstStep);
-		try {
-			proceedButton_onfirstStep.click();
-		} catch (org.openqa.selenium.ElementClickInterceptedException e) {
-			proceedButton_onfirstStep.click();
-		}
+//		try {
+//			proceedButton_onfirstStep.click();
+//		} catch (org.openqa.selenium.ElementClickInterceptedException e) {
+//			proceedButton_onfirstStep.click();
+//		}
+		
+		js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+		Robot rb=new Robot();
+		rb.keyPress(KeyEvent.VK_DOWN);
+		rb.delay(3000);
+		rb.keyRelease(KeyEvent.VK_DOWN);
+		rb.keyPress(KeyEvent.VK_DOWN);
+		rb.delay(3000);
+		rb.keyRelease(KeyEvent.VK_DOWN);
+		
+		proceedButton_onfirstStep.click();
 	}
 
 	public void clickOnProceedButtonSecondStep() throws InterruptedException, AWTException
@@ -820,7 +853,7 @@ public class CampaignsPage extends BasePage
 		}
 	}
 	
-	public void selectAllScheduleDays() 
+	public void selectAllScheduleDays() throws AWTException 
 	{
 		for (WebElement selectDay : Select_days) 
 		{
@@ -828,6 +861,15 @@ public class CampaignsPage extends BasePage
 			System.out.println("Schedule days : " + getday);
 
 			waitElementHelper(selectDay);
+			js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+			Robot rb=new Robot();
+			rb.keyPress(KeyEvent.VK_DOWN);
+			rb.delay(3000);
+			rb.keyRelease(KeyEvent.VK_DOWN);
+			rb.keyPress(KeyEvent.VK_DOWN);
+			rb.delay(3000);
+			rb.keyRelease(KeyEvent.VK_DOWN);
+			
 			selectDay.click();
 		}
 	}
@@ -881,6 +923,15 @@ public class CampaignsPage extends BasePage
 			
 		}
 
+	}
+	
+	public void settime()
+	{
+	 WebElement currenttimehour = driver.findElement(By.xpath("//input[@formcontrolname='hours']"));
+	 currenttimehour.sendKeys("20");
+	 
+	 WebElement currenttimeminutes = driver.findElement(By.xpath("//input[@formcontrolname='minutes']"));
+	 currenttimeminutes.sendKeys("00");
 	}
 	
 	

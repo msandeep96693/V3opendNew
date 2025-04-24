@@ -1,5 +1,10 @@
 package pageObjects;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -56,9 +61,19 @@ public class RecurringAdsPage extends BasePage
 		creatives_button1.click();	
 	}
 
-	public void clickCreativesButtonTwo()
+	public void clickCreativesButtonTwo() throws AWTException
 	{
 		waitElementHelper(creatives_button2);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+		Robot rb=new Robot();
+		rb.keyPress(KeyEvent.VK_DOWN);
+		rb.delay(3000);
+		rb.keyRelease(KeyEvent.VK_DOWN);
+		rb.keyPress(KeyEvent.VK_DOWN);
+		rb.delay(3000);
+		rb.keyRelease(KeyEvent.VK_DOWN);
+		
 		creatives_button2.click();
 	}
 	

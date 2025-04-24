@@ -1,8 +1,13 @@
 package pageObjects;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,7 +17,7 @@ import com.fasterxml.jackson.databind.deser.ValueInstantiator.Gettable;
 
 public class AdvertiserPage extends BasePage
 {
-
+JavascriptExecutor js=(JavascriptExecutor)driver;
 	public AdvertiserPage(WebDriver driver)
 	{
 		super(driver);
@@ -59,6 +64,9 @@ public class AdvertiserPage extends BasePage
 	
 	private @FindBy(xpath = "//button[contains(.,' Add ')]")
 	WebElement add_button;
+	
+	private @FindBy(xpath = "/html/body/app-root/app-base/div/div/div/app-newpublisher/div[4]/button[2]/i")
+	WebElement add_button1;
 	
 	private @FindBy(xpath = "//div[@class='page-content']//h2")
 	WebElement headingOn_updatePage;
@@ -209,14 +217,25 @@ public class AdvertiserPage extends BasePage
 		cancel_button.click();
 	}
 	
-	public void clickOnAddButton()
+	public void clickOnAddButton() throws InterruptedException, AWTException
 	{
-		scrollBottomofPage();
-		waitElementHelper(add_button);
+//		Thread.sleep(1000);
+//		scrollUntilElementVisible(add_button1);
+//		scrollDownNumberofpixels();
+		
+		js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+		Robot rb=new Robot();
+		rb.keyPress(KeyEvent.VK_DOWN);
+		rb.delay(3000);
+		rb.keyRelease(KeyEvent.VK_DOWN);
+		rb.keyPress(KeyEvent.VK_DOWN);
+		rb.delay(3000);
+		rb.keyRelease(KeyEvent.VK_DOWN);
+		
 		try {
 		add_button.click();
 		}
-		catch(org.openqa.selenium.ElementClickInterceptedException e)
+		catch(ElementClickInterceptedException e)
 		{
 			add_button.click();
 		}

@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import java.awt.AWTException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -45,8 +46,9 @@ public class RecurringTest extends BaseClass
 	@When("Select a campaign sector from campaign sector popup dropdown")
 	public void Select_campaign_sector_from_campaign_sector()
 	{
-	   options=Arrays.asList("Car Insurance");
-	   campaignsPage.SelectOptionInPopupDropdown("Select Campaign Sector", options, "test");
+		campaignsPage.campaignsectordropdown("Automotive");
+//	   options=Arrays.asList("Car Insurance");
+//	   campaignsPage.SelectOptionInPopupDropdown("Select Campaign Sector", options, "test");
 	}
 	
 	@When("Clicks on proceed button in first step of recurring")
@@ -56,7 +58,7 @@ public class RecurringTest extends BaseClass
 	}
 	
 	@When("Clicks on proceed button in second step of recurring")
-	public void Clicks_on_proceed_button_in_second_step_of_recurring()
+	public void Clicks_on_proceed_button_in_second_step_of_recurring() throws AWTException
 	{
 		campaignsPage.clickOnProceedButtonOnFirststep();
 	}
@@ -93,7 +95,7 @@ public class RecurringTest extends BaseClass
 	}
 	
 	@When("Select a schedule date and start time and select schedule days")
-	public void Select_schedule_date_and_start_time_and_select_schedule_days() throws InterruptedException
+	public void Select_schedule_date_and_start_time_and_select_schedule_days() throws InterruptedException, AWTException
 	{
 		ZoneId londonZone = ZoneId.of("Europe/London");
         LocalDate currentDate = LocalDate.now(londonZone);
